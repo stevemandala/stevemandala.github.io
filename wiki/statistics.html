@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>Hello World! — a non-linear personal web notebook test</title>
+<title>Statistics — A statistically insignificant amount of information</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -143,6 +143,8 @@ Error message and password prompt
 
 <li>$:/core</li>
 
+<li>$:/DefaultTiddlers</li>
+
 <li>$:/GitHub/Filename</li>
 
 <li>$:/GitHub/Path</li>
@@ -178,6 +180,8 @@ Error message and password prompt
 <li>New Tiddler 1</li>
 
 <li>P-values</li>
+
+<li>Raw Notes</li>
 
 </ul>
 </p>
@@ -9566,6 +9570,10 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20200907155146209" modified="20200907155146209" title="$:/DefaultTiddlers">
+<pre>
+</pre>
+</div>
 <div created="20200907153502747" modified="20200907153507656" title="$:/GitHub/Filename">
 <pre>statistics.html</pre>
 </div>
@@ -9581,11 +9589,11 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div created="20200907154653191" modified="20200907154653619" title="$:/SiteSubtitle">
-<pre>a non-linear personal web notebook test</pre>
+<div created="20200907154653191" modified="20200907155137642" title="$:/SiteSubtitle">
+<pre>A statistically insignificant amount of information</pre>
 </div>
-<div created="20200721024246639" modified="20200721024248110" title="$:/SiteTitle">
-<pre>Hello World!</pre>
+<div created="20200721024246639" modified="20200907155104491" title="$:/SiteTitle">
+<pre>Statistics</pre>
 </div>
 <div created="20200907154233796" modified="20200907154233796" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Palette</pre>
@@ -9599,7 +9607,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div list="GettingStarted" title="$:/StoryList">
+<div list="[[Raw Notes]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9777,6 +9785,117 @@ Error message and password prompt
 </div>
 <div created="20200907153945530" modified="20200907153952851" tags="" title="P-values">
 <pre></pre>
+</div>
+<div created="20200907155155574" modified="20200907155344863" tags="" title="Raw Notes">
+<pre># Hypothesis Testing
+Sampling
+Random, stratified, and cluster
+
+Test statistics
+p-values
+Type I vs Type II error tradeoffs
+1-sided vs 2-sided hypothesis tests
+
+Analysis techniques
+Randomization/simulation
+
+Ordinary Least Squares (OLS)
+Gauss-Markov assumptions and theorem
+
+Estimator Properties
+1) Unbiased
+2) Consistent
+
+Unbiased Estimators
+Def: Expected value = population parameter[?]
+Generalized Least Squares (GLS)
+Multivariate normal r.v.
+
+Confidence Interval
+Order statistics
+
+Stationarity
+
+Protip: Alway estimate with errors
+
+Covariance vs Correlation
+* Corellation: Index of linearity, unit free
+* Covariance: Not unit free
+
+Exponential smoothing
+
+Monte Carlo
+Brownian bridge
+
+Covariance matrix: Positive semidefinite (?)
+
+
+Units, Treatments, Outcomes
+Randomized trials as probability distributions over treatments
+
+Bayesian vs frequentist methods
+Ref: https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf
+
+
+## Shrinkage/Regularization
+Why: Introduce bias to reduce variance
+Ridge
+Lasso
+
+
+# Regression
+
+## Linear regression
+Formulation: y_i = X_i * B_i + epsilon
+
+OLS
+If homescedastic + independent, normally distributed errors, then OLS = MLE
+
+## Maximum Likelihood Estimation
+Idea: Choose parameter \theta s.t. joint probability of observed data is maximized  
+Special case of MAP with uniform prior  
+Likelihood =&gt; max theta over P(parameter | data)  
+Equiv: Minimizing uncertainty (entropy) given data 
+Equiv: Minimizing the KL divergence
+
+Why MLE &gt; LR?
+ * MLE is more prone to overfitting
+
+Properties
+Asymtotically unbiased: E(p_hat) -&gt; p as n-&gt;inf
+Asymtotically minimal variance: Minimal var among all unbiased estimators
+Under smoothness + identifiability =&gt; consistency (i.e. convergence to true param)
+Asymptotically normal: Diff from true param is N(0, I^-1)
+Statistical efficient
+
+Bias/Variance
+
+PDFs -&gt; Likelihood functions
+
+MLE
+Assumes homoscedastic in covariates
+
+
+## Bayesian linear regression
+Subsumes MLE, Ridge regression
+Why BLR &gt; MLE, etc
+* Able to quantify uncertainty
+* Thus, can optimize loss function
+
+MLE and Optimization
+MLE model -&gt; optimization loss function
+
+Ridge regression
+Intuition: Bayes prior s.t. B_hat is close to 0
+
+Convolution of 2 Gaussians = Gaussian
+
+Prediction = Integral[P(predict| model, covar) * P(model| data)]
+
+# Misc
+How randn works
+Take uniform dist, inverts it w.r.t cdf of normal
+</pre>
 </div>
 
 
