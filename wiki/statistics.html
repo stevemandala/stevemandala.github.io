@@ -191,6 +191,8 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Draft of 'Raw Notes'</li>
+
 <li>Hypothesis Testing</li>
 
 <li>Links</li>
@@ -9637,13 +9639,13 @@ Error message and password prompt
 <div created="20200907153439703" modified="20200907155740607" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200907155701725" modified="20200907162642888" title="$:/state/tab/sidebar--595412856">
-<pre>TableOfContents</pre>
+<div created="20200907155701725" modified="20200908025713079" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20200907155709490" list="[[Hypothesis Testing]] [[Raw Notes]] Links" modified="20200907160712395" title="$:/StoryList">
+<div created="20200908025635307" list="[[Hypothesis Testing]] Links [[Draft of 'Raw Notes']]" modified="20200908025715180" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9816,10 +9818,139 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200907162818684" modified="20200907162827388" tags="" title="Hypothesis Testing">
-<pre></pre>
+<div created="20200907155155574" draft.of="Raw Notes" draft.title="Raw Notes" modified="20200908030700643" tags="TableOfContents" title="Draft of 'Raw Notes'">
+<pre># Hypothesis Testing
+Sampling
+Random, stratified, and cluster
+
+Test statistics
+p-values
+Type I vs Type II error tradeoffs
+1-sided vs 2-sided hypothesis tests
+
+Analysis techniques
+Randomization/simulation
+
+Ordinary Least Squares (OLS)
+Gauss-Markov assumptions and theorem
+
+Estimator Properties
+1) Unbiased
+2) Consistent
+
+Unbiased Estimators
+Def: Expected value = population parameter[?]
+Generalized Least Squares (GLS)
+Multivariate normal r.v.
+
+Confidence Interval
+Order statistics
+
+Stationarity
+
+Protip: Alway estimate with errors
+
+Covariance vs Correlation
+* Corellation: Index of linearity, unit free
+* Covariance: Not unit free
+
+Exponential smoothing
+
+Monte Carlo
+Brownian bridge
+
+Covariance matrix: Positive semidefinite (?)
+
+
+Units, Treatments, Outcomes
+Randomized trials as probability distributions over treatments
+
+
+## Shrinkage/Regularization
+Why: Introduce bias to reduce variance
+Ridge
+Lasso
+
+
+# Regression
+
+## Linear regression
+Formulation: y_i = X_i * B_i + epsilon
+
+OLS
+If homescedastic + independent, normally distributed errors, then OLS = MLE
+
+## Maximum Likelihood Estimation
+Idea: Choose parameter \theta s.t. joint probability of observed data is maximized  
+Special case of MAP with uniform prior  
+Likelihood =&gt; max theta over P(parameter | data)  
+Equiv: Minimizing uncertainty (entropy) given data 
+Equiv: Minimizing the KL divergence
+
+Why MLE &gt; LR?
+ * MLE is more prone to overfitting
+
+Properties
+Asymtotically unbiased: E(p_hat) -&gt; p as n-&gt;inf
+Asymtotically minimal variance: Minimal var among all unbiased estimators
+Under smoothness + identifiability =&gt; consistency (i.e. convergence to true param)
+Asymptotically normal: Diff from true param is N(0, I^-1)
+Statistical efficient
+
+Bias/Variance
+
+PDFs -&gt; Likelihood functions
+
+MLE
+Assumes homoscedastic in covariates
+
+
+## Bayesian linear regression
+Subsumes MLE, Ridge regression
+Why BLR &gt; MLE, etc
+* Able to quantify uncertainty
+* Thus, can optimize loss function
+
+MLE and Optimization
+MLE model -&gt; optimization loss function
+
+Ridge regression
+Intuition: Bayes prior s.t. B_hat is close to 0
+
+Convolution of 2 Gaussians = Gaussian
+
+Prediction = Integral[P(predict| model, covar) * P(model| data)]
+
+# Misc
+How randn works
+Take uniform dist, inverts it w.r.t cdf of normal
+</pre>
 </div>
-<div created="20200907160526890" modified="20200907160959534" tags="" title="Links">
+<div created="20200907162818684" modified="20200908031236535" tags="" title="Hypothesis Testing">
+<pre>! Basics
+Sampling
+Random, stratified, and cluster
+
+Test statistics
+p-values
+
+!! Type I vs Type II error tradeoffs
+
+1-sided vs 2-sided hypothesis tests
+
+
+! Why p-values suck
+
+* By definition, the probability that a result as-if-not-more extreme could occur if null is true
+* Commonly confused with probability that the null hypothesis is true
+* Non-significant results doesn't mean that null is most likely
+** Underpowered experiments can also lead to meager p-values
+* Says nothing about impact (high effect sizes will lead to smaller p-values, but so can low variance!)
+* Across studies, similar p-values are difficult to compare meaningfully
+* Confusion between p-values vs type I errors
+* p-values and alpha inequalities are different, former should be reported consistently</pre>
+</div>
+<div created="20200907160526890" modified="20200908025645647" tags="TableOfContents" title="Links">
 <pre>[[Bayes factors vs. P-values | sci-hub.tw/10.1016/j.tourman.2017.11.011]]
 
 [[Bayesian vs Frequentist Methods | https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf]]</pre>
